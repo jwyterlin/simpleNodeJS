@@ -1,7 +1,14 @@
 var ObjectID = require('mongodb').ObjectID;
 
 CollectionDriver = function(db) {
+
   this.db = db;
+
+  this.db.createCollection("items", function(err, col) {
+    console.log( 'error: ' + err );
+    console.log( 'col: ' + col );
+  });
+
 };
 
 CollectionDriver.prototype.getCollection = function(collectionName, callback) {
